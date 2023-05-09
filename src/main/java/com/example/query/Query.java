@@ -1,5 +1,6 @@
 package com.example.query;
 
+import com.example.exception.DataNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +27,7 @@ public class Query implements GraphQLQueryResolver {
 		return sampleRequest.getFirstName() + " " + sampleRequest.getLastName();
 	}
 	
-	public StudentResponse getStudent (long id) {
+	public StudentResponse getStudent (long id)  {
 		return new StudentResponse(studentService.getStudentById(id));
 	}
 }
